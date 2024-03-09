@@ -14,14 +14,9 @@ client.tls_insecure_set(True)
 client.connect("a1u7o7eqy96ipy-ats.iot.us-east-1.amazonaws.com", 8883, 60)
 
 def publishData():
-    ctr = 1
-    while True:
-        msg = "Testing" + str(ctr)
-        print(msg)
-        client.publish("raspi/data", payload=json.dumps({"msg": msg}), qos=0, retain=False)
-        ctr += 1
-
-        time.sleep(5)
+    with open("./data.cpabe", "rb") as file:
+        file_content = file.read()
+        client.publish("raspi/data", payload=file_content, qos=0, retain=False)
 
 _thread.start_new_thread(publishData, ())
 
