@@ -1,3 +1,5 @@
+import base64
+import json
 import paho.mqtt.client as mqtt
 import ssl
 
@@ -15,7 +17,8 @@ def publishData():
     print("Publishing data...")
     with open("./data.cpabe", "rb") as file:
         file_content = file.read()
-        client.publish("raspi/data", payload=file_content, qos=0, retain=True)
+        encoded_content = base64.b64encode(file_content)
+        client.publish("raspi/data", payload=encoded_content, qos=0, retain=True)
     print("Data published")
 
 client.loop_forever()
