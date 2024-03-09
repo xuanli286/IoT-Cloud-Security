@@ -15,7 +15,7 @@ def write_to_file(message):
     with open("received_data.txt", "a") as file:
         file.write(message + "\n")
 
-client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1)
+client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message  # Assign the on_message callback function
 client.tls_set(ca_certs='./rootCA.pem', certfile='./certificate.pem.crt', keyfile='./private.pem.key', tls_version=ssl.PROTOCOL_SSLv23)
