@@ -15,7 +15,7 @@ def publishData():
     print("Publishing data...")
     with open("./data.cpabe", "rb") as file:
         file_content = file.read()
-        client.publish("raspi/data", payload=file_content, qos=0, retain=False)
+        client.publish("raspi/data", payload=file_content, qos=0, retain=True)
     print("Data published")
 
 client.loop_forever()
