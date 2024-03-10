@@ -5,7 +5,7 @@ import json
 
 def on_connect(client, userdata, flags, rc):
     print("Connected to AWS IoT: " + str(rc))
-    client.subscribe("raspi/data")  # Subscribe to the desired topic upon connection
+    client.subscribe("raspi/data")
 
 def on_message(client, userdata, msg):
     print("Message Received")
@@ -18,7 +18,7 @@ def write_to_file(message):
 
 client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1)
 client.on_connect = on_connect
-client.on_message = on_message  # Assign the on_message callback function
+client.on_message = on_message
 client.tls_set(ca_certs='./rootCA.pem', certfile='./certificate.pem.crt', keyfile='./private.pem.key', tls_version=ssl.PROTOCOL_SSLv23)
 client.tls_insecure_set(True)
 client.connect("a1u7o7eqy96ipy-ats.iot.us-east-1.amazonaws.com", 8883, 60)
