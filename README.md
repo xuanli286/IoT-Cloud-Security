@@ -17,3 +17,16 @@
 
 # VNC Viewer
 Launch VNC Viewer and connect to `192.168.111.20:5901`.
+
+# Connecting to AWS IOT Core and Decrypting the Message with Dercryption Key
+
+ ``` 
+    python receiver.py
+ ```
+ ``` 
+    cpabe-dec pub_key doctor_priv_key received_data.cpabe
+
+```
+ ``` 
+    nano received_data
+ ```
