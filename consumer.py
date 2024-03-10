@@ -9,7 +9,7 @@ def on_connect(client, userdata, flags, rc):
 
 def on_message(client, userdata, msg):
     print("Message Received")
-    write_to_file(msg.payload)  # Call function to write message to a text file
+    write_to_file(msg.payload)
 
 def write_to_file(message):
     with open("received_data.cpabe","wb") as file:
