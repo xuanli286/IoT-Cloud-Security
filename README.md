@@ -48,6 +48,14 @@ Connect Raspberry Pi to a power source.
     cpabe-dec pub_key doctor_priv_key received_data.cpabe
 
     ```
+   ``` 
+    cpabe-dec pub_key nurse_e_priv_key received_data.cpabe
+
+    ```
+      ``` 
+    cpabe-dec pub_key nurse_m_priv_key received_data.cpabe
+
+    ```
     ``` 
     nano received_data
     ```
